@@ -1,0 +1,123 @@
+.footer {
+  padding-block: clamp(2rem, 5vw, 4rem);
+  background: var(--color-black);
+  color: var(--color-cream);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr 0.9fr;
+  gap: 2rem;
+  border-top: 1px solid rgba(247, 241, 232, 0.16);
+  padding-top: 2rem;
+
+  @media (max-width: 760px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.brand {
+  display: grid;
+  gap: 1rem;
+
+  p {
+    max-width: 320px;
+    color: color-mix(in srgb, var(--color-cream) 68%, transparent);
+  }
+}
+
+.brandLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  width: fit-content;
+  color: inherit;
+  text-decoration: none;
+
+  img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(255, 122, 25, 0.2));
+  }
+}
+
+.brandText {
+  display: grid;
+  gap: 0.1rem;
+  line-height: 1.05;
+
+  strong {
+    font-size: 1.08rem;
+    font-weight: 780;
+    letter-spacing: 0.01em;
+  }
+
+  small {
+    color: rgba(247, 241, 232, 0.58);
+    font-family: var(--font-label);
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 0.25rem 0 0;
+  padding: 0;
+  list-style: none;
+
+  a {
+    display: grid;
+    place-items: center;
+    width: 2.35rem;
+    height: 2.35rem;
+    border: 1px solid rgba(247, 241, 232, 0.22);
+    border-radius: 999px;
+    color: var(--color-cream);
+    transition:
+      color var(--duration-fast) var(--ease-premium),
+      border-color var(--duration-fast) var(--ease-premium),
+      background var(--duration-fast) var(--ease-premium),
+      transform 0.45s var(--ease-premium);
+
+    &:hover {
+      color: var(--color-black);
+      border-color: var(--color-orange);
+      background: var(--color-orange);
+      transform: translateY(-4px) rotate(-6deg);
+    }
+  }
+}
+
+.footer nav,
+.footer address {
+  display: grid;
+  gap: 0.7rem;
+  align-content: start;
+  font-style: normal;
+}
+
+.footer nav a,
+.footer address span,
+.footer address a {
+  color: color-mix(in srgb, var(--color-cream) 70%, transparent);
+  text-decoration: none;
+}
+
+.footer nav a:hover,
+.footer address a:hover {
+  color: var(--color-orange);
+}
+
+.copy {
+  margin: 1.25rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(247, 241, 232, 0.1);
+  color: color-mix(in srgb, var(--color-cream) 48%, transparent);
+  font-size: 0.82rem;
+}

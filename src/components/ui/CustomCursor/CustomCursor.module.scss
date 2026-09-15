@@ -1,0 +1,88 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: none;
+  place-items: center;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  will-change: transform;
+  opacity: 0;
+
+  &.ready {
+    display: grid;
+    opacity: 1;
+  }
+}
+
+.dot {
+  display: block;
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: #fff;
+  transition:
+    width 0.35s var(--ease-premium),
+    height 0.35s var(--ease-premium),
+    opacity 0.25s ease,
+    background 0.25s ease;
+}
+
+.label {
+  position: absolute;
+  max-width: 7rem;
+  overflow: hidden;
+  color: #090706;
+  font-family: var(--font-label);
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.1;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s var(--ease-premium);
+}
+
+.active {
+  mix-blend-mode: normal;
+}
+
+.active .dot {
+  width: 4.4rem;
+  height: 4.4rem;
+  background: var(--color-orange);
+}
+
+.hasLabel .label {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.hidden {
+  opacity: 0;
+}
+
+:global(html.has-custom-cursor),
+:global(html.has-custom-cursor *) {
+  cursor: none !important;
+}
+
+@media (max-width: 899px), (pointer: coarse) {
+  .cursor {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    display: none !important;
+  }
+}

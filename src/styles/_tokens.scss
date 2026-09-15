@@ -1,0 +1,42 @@
+:root {
+  --color-black: #090706;
+  --color-ink: #171310;
+  --color-charcoal: #201b17;
+  --color-cream: #f7f1e8;
+  --color-paper: #fffaf1;
+  --color-muted: #9f968b;
+  --color-line: rgba(23, 19, 16, 0.16);
+  --color-line-dark: rgba(247, 241, 232, 0.16);
+  --color-orange: #f57a19;
+  --color-amber: #ffb000;
+  --color-red: #e8442e;
+  --color-cyan: #45a6cf;
+
+  --font-display: var(--font-urbanist), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-label: var(--font-stack-sans-notch), var(--font-geist), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+  --title-size: clamp(2.35rem, 4.8vw, 65px);
+  --section-title-max: 820px;
+  --page-gutter: clamp(1rem, 3vw, 3.5rem);
+  --container-max: 1180px;
+  --section-space: clamp(5rem, 9vw, 10rem);
+  --header-height: 76px;
+
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  --ease-premium: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-sharp: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 180ms;
+  --duration-med: 420ms;
+  --duration-slow: 900ms;
+}
+
+$bp-sm: 480px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1536px;

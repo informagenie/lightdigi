@@ -1,0 +1,22 @@
+.heading {
+  display: grid;
+  gap: clamp(0.85rem, 1.6vw, 1.2rem);
+  width: 100%;
+  max-width: var(--section-title-max);
+  margin-bottom: clamp(2.5rem, 5vw, 4.5rem);
+  text-align: left;
+
+  h2 {
+    max-width: 100%;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+}
+
+.dark h2 {
+  color: var(--color-ink);
+}
+
+.light h2 {
+  color: var(--color-amber);
+}

@@ -1,0 +1,14 @@
+node_modules
+.next
+out
+dist
+.env
+.env.local
+.env*.local
+*.tsbuildinfo
+tmp
+
+# Docs de reference trop volumineux
+About agency/
+Agence-digitale-Paris-Conseil-sites-IA-la-boucle-09-02-2026_01_17_AM.png
+

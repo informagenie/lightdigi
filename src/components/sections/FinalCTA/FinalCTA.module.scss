@@ -1,0 +1,128 @@
+.section {
+  position: relative;
+  padding-block: var(--section-space);
+  background:
+    radial-gradient(ellipse 55% 50% at 100% 0%, rgba(245, 122, 25, 0.12), transparent 55%),
+    var(--color-black);
+  color: var(--color-cream);
+  overflow: hidden;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(2.5rem, 6vw, 5.5rem);
+  align-items: start;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.copy {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.lead {
+  margin: 0;
+  max-width: 34rem;
+  color: color-mix(in srgb, var(--color-cream) 74%, transparent);
+  font-size: clamp(1.02rem, 1.4vw, 1.12rem);
+  line-height: 1.6;
+}
+
+.formWrap {
+  min-width: 0;
+}
+
+.form {
+  display: grid;
+  gap: 1.35rem;
+}
+
+.formLabel {
+  margin: 0;
+  color: var(--color-orange);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+
+  @media (max-width: 560px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.field {
+  display: grid;
+  gap: 0.55rem;
+
+  span {
+    color: color-mix(in srgb, var(--color-cream) 62%, transparent);
+    font-family: var(--font-label);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(247, 241, 232, 0.22);
+    border-radius: 0;
+    padding: 0.85rem 0;
+    background: transparent;
+    color: #fff;
+    font: inherit;
+    font-size: 1rem;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color var(--duration-fast) var(--ease-premium);
+
+    &::placeholder {
+      color: color-mix(in srgb, var(--color-cream) 38%, transparent);
+    }
+
+    &:hover {
+      border-bottom-color: rgba(247, 241, 232, 0.4);
+    }
+
+    &:focus {
+      border-bottom-color: var(--color-orange);
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    min-height: 8rem;
+  }
+}
+
+.submitRow {
+  display: grid;
+  gap: 0.85rem;
+  align-items: start;
+  margin-top: 0.35rem;
+
+  button {
+    width: fit-content;
+  }
+}
+
+.status {
+  margin: 0;
+  min-height: 1.35rem;
+  color: color-mix(in srgb, var(--color-cream) 55%, transparent);
+  font-size: 0.88rem;
+  line-height: 1.4;
+}

@@ -1,0 +1,38 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.sectionLight {
+  background: var(--surface-soft);
+  color: var(--color-cream);
+
+  p {
+    color: color-mix(in srgb, var(--color-cream) 72%, transparent);
+  }
+}
+
+.sectionPaper {
+  background: var(--surface-paper);
+  color: var(--color-cream);
+
+  p {
+    color: color-mix(in srgb, var(--color-cream) 72%, transparent);
+  }
+}
+
+.sectionContrast {
+  background: var(--surface-contrast);
+  color: var(--color-cream);
+
+  p {
+    color: color-mix(in srgb, var(--color-cream) 72%, transparent);
+  }
+}

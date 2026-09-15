@@ -1,0 +1,31 @@
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-label);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &::before {
+    content: "";
+    width: 2.6rem;
+    height: 1px;
+    background: currentColor;
+  }
+}
+
+.minimal {
+  &::before {
+    display: none;
+  }
+}
+
+.dark {
+  color: var(--color-orange);
+}
+
+.light {
+  color: color-mix(in srgb, var(--color-cream) 84%, transparent);
+}
