@@ -1,0 +1,66 @@
+.band {
+  display: block;
+  overflow: hidden;
+  border-block: 1px solid var(--color-line-dark);
+  padding-block: clamp(0.75rem, 1.5vw, 1.25rem);
+  color: inherit;
+  text-decoration: none;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: marquee-band 28s linear infinite;
+
+  > span {
+    display: inline-flex;
+    align-items: center;
+    gap: clamp(1.5rem, 3vw, 3rem);
+    padding-right: clamp(1.5rem, 3vw, 3rem);
+    color: transparent;
+    font-family: var(--font-display);
+    font-size: clamp(3rem, 9vw, 8.5rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    white-space: nowrap;
+    -webkit-text-stroke: 1.5px color-mix(in srgb, var(--color-cream) 55%, transparent);
+    transition:
+      color var(--duration-med) var(--ease-premium),
+      -webkit-text-stroke-color var(--duration-med) var(--ease-premium);
+
+    &:nth-child(odd) {
+      color: var(--color-cream);
+      -webkit-text-stroke-color: transparent;
+    }
+  }
+}
+
+.star {
+  color: var(--color-orange);
+  font-size: 0.45em;
+  -webkit-text-stroke: 0;
+}
+
+// Version lien : tout passe en orange au survol
+.link:hover .track > span {
+  color: var(--color-orange);
+  -webkit-text-stroke-color: transparent;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: -4px;
+}
+
+@keyframes marquee-band {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    animation: none;
+  }
+}

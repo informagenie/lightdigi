@@ -10,6 +10,8 @@ type SectionHeadingProps = {
   tone?: "light" | "dark";
   className?: string;
   labelVariant?: "default" | "minimal";
+  /** Niveau du titre : h1 pour un titre de page. */
+  titleAs?: "h1" | "h2";
 };
 
 export function SectionHeading({
@@ -18,7 +20,8 @@ export function SectionHeading({
   id,
   tone = "dark",
   className,
-  labelVariant = "default"
+  labelVariant = "default",
+  titleAs = "h2"
 }: SectionHeadingProps) {
   const classNames = [styles.heading, styles[tone], className].filter(Boolean).join(" ");
 
@@ -27,7 +30,7 @@ export function SectionHeading({
       <SectionLabel tone={tone} variant={labelVariant}>
         {label}
       </SectionLabel>
-      <AnimatedTitle id={id} text={title} />
+      <AnimatedTitle id={id} text={title} as={titleAs} />
     </header>
   );
 }

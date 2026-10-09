@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "@/src/components/ui/Button/Button";
 import { Container } from "@/src/components/ui/Container/Container";
+import { MarqueeBand } from "@/src/components/ui/MarqueeBand/MarqueeBand";
 import { Reveal } from "@/src/components/ui/Reveal/Reveal";
 import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
 import { contactContent } from "@/src/data/contact";
@@ -19,16 +20,7 @@ export function FinalCTA() {
 
   return (
     <section id="contact" className={styles.section} aria-labelledby="contact-title">
-      <div className={styles.marquee} aria-hidden="true">
-        <div className={styles.marqueeTrack}>
-          {Array.from({ length: 4 }, (_, index) => (
-            <span key={index}>
-              {finalCta.marquee}
-              <span className={styles.marqueeStar}>✦</span>
-            </span>
-          ))}
-        </div>
-      </div>
+      <MarqueeBand text={finalCta.marquee} className={styles.marquee} />
 
       <Container>
         <div className={styles.layout}>

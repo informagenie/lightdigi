@@ -4,7 +4,6 @@
   background:
     linear-gradient(90deg, rgba(245, 122, 25, 0.12), transparent 18%, transparent 82%, rgba(255, 176, 0, 0.1)),
     var(--color-black);
-  border-block: 1px solid rgba(247, 241, 232, 0.08);
 
   &::before,
   &::after {
@@ -19,12 +18,12 @@
 
   &::before {
     top: 0;
-    background: linear-gradient(90deg, transparent, rgba(255, 176, 0, 0.7), var(--color-orange), rgba(255, 176, 0, 0.7), transparent);
+    background: rgba(255, 255, 255, 0.1);
   }
 
   &::after {
     bottom: 0;
-    background: linear-gradient(90deg, transparent, rgba(245, 122, 25, 0.45), transparent);
+    background: rgba(255, 255, 255, 0.1);
   }
 }
 

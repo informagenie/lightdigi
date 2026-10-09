@@ -1,0 +1,190 @@
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  padding-bottom: clamp(1.5rem, 3vw, 2rem);
+  border-bottom: 1px solid var(--color-line-dark);
+}
+
+.filter {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.3rem;
+  padding: 0.6rem 1.05rem;
+  border: 1px solid rgba(247, 241, 232, 0.24);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: color-mix(in srgb, var(--color-cream) 82%, transparent);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-med) var(--ease-premium),
+    border-color var(--duration-med) var(--ease-premium),
+    color var(--duration-med) var(--ease-premium);
+
+  sup {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    opacity: 0.7;
+  }
+
+  &:hover {
+    border-color: var(--color-orange);
+    color: var(--color-cream);
+  }
+
+  &[aria-pressed="true"] {
+    border-color: var(--color-orange);
+    background: var(--color-orange);
+    color: var(--color-black);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 3px;
+  }
+}
+
+// Grille éditoriale : la colonne centrale est décalée pour casser l'alignement
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 3vw, 2.75rem) clamp(1.25rem, 2.5vw, 2rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (min-width: 1101px) {
+    .offset {
+      margin-top: clamp(3rem, 6vw, 5.5rem);
+    }
+  }
+
+  @media (max-width: 1100px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  display: grid;
+  gap: 1.1rem;
+  color: inherit;
+  text-decoration: none;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-orange);
+    outline-offset: 4px;
+  }
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 0.35rem;
+  background: var(--color-charcoal);
+
+  img {
+    object-fit: cover;
+    transition:
+      transform 1s var(--ease-premium),
+      filter 0.6s var(--ease-premium);
+  }
+
+  .card:hover & img,
+  .card:focus-visible & img {
+    transform: scale(1.06);
+    filter: brightness(0.7);
+  }
+}
+
+// Étiquette orange qui monte depuis le bas au survol
+.overlay {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-orange);
+  color: var(--color-black);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transform: translateY(calc(100% + 1.5rem));
+  transition: transform 0.6s var(--ease-premium);
+
+  .card:hover &,
+  .card:focus-visible & {
+    transform: translateY(0);
+  }
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+
+  > div {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--color-cream);
+    font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color var(--duration-med) var(--ease-premium);
+  }
+
+  p {
+    margin: 0;
+    color: color-mix(in srgb, var(--color-cream) 60%, transparent);
+    font-size: 0.92rem;
+  }
+
+  .card:hover & h2 {
+    color: var(--color-orange);
+  }
+}
+
+.index {
+  padding-top: 0.15rem;
+  color: var(--color-orange);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 760;
+}
+
+.client {
+  color: var(--color-amber);
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media img,
+  .overlay,
+  .filter {
+    transition: none;
+  }
+
+  .card:hover .media img {
+    transform: none;
+  }
+}

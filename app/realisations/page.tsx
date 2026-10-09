@@ -1,18 +1,19 @@
-import Image from "next/image";
-import Link from "next/link";
 import type { Metadata } from "next";
 import { Header } from "@/src/components/navigation/Header/Header";
+import { ProjectsGrid } from "@/src/components/portfolio/ProjectsGrid/ProjectsGrid";
 import { Footer } from "@/src/components/sections/Footer/Footer";
-import { Container } from "@/src/components/ui/Container/Container";
-import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
 import { Button } from "@/src/components/ui/Button/Button";
+import { Container } from "@/src/components/ui/Container/Container";
+import { MarqueeBand } from "@/src/components/ui/MarqueeBand/MarqueeBand";
+import { Reveal } from "@/src/components/ui/Reveal/Reveal";
+import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
+import { portfolioCta, portfolioListContent } from "@/src/data/portfolio";
 import { allProjects } from "@/src/data/projects";
 import styles from "./realisations.module.scss";
 
 export const metadata: Metadata = {
-  title: "Realisations",
-  description:
-    "Découvrez l'ensemble des projets réalisés par Light Digital Consulting pour des marques, institutions et organisations."
+  title: portfolioListContent.metaTitle,
+  description: portfolioListContent.metaDescription
 };
 
 export default function RealisationsPage() {
@@ -24,42 +25,26 @@ export default function RealisationsPage() {
           <SectionHeading
             id="all-works-title"
             tone="light"
-            label="Portfolio"
-            title="Tous nos projets réalisés."
+            label={portfolioListContent.label}
+            title={portfolioListContent.title}
+            className={styles.heading}
+            titleAs="h1"
           />
-          <p className={styles.lead}>
-            Une selection elargie de campagnes, activations et productions digitalisees pour nos
-            clients en RDC et au-dela.
-          </p>
+          <Reveal delay={0.2}>
+            <p className={styles.lead}>{portfolioListContent.lead}</p>
+          </Reveal>
         </Container>
 
         <Container>
-          <ul className={styles.grid}>
-            {allProjects.map((project) => (
-              <li key={project.id}>
-                <Link href={`/realisations/${project.id}`} className={styles.card}>
-                  <div className={styles.media}>
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      sizes="(max-width: 720px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                    />
-                  </div>
-                  <div className={styles.meta}>
-                    <span>{project.client}</span>
-                    <h2>{project.title}</h2>
-                    <p>{project.category}</p>
-                  </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-
-          <div className={styles.cta}>
-            <Button href="/#contact">Parlez-nous de votre projet</Button>
-          </div>
+          <ProjectsGrid projects={allProjects} />
         </Container>
+
+        <div className={styles.cta}>
+          <MarqueeBand text={portfolioCta.marquee} href="/#contact" />
+          <Container className={styles.ctaActions}>
+            <Button href="/#contact">{portfolioCta.primary}</Button>
+          </Container>
+        </div>
       </main>
       <Footer />
     </>
