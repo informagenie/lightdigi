@@ -8,12 +8,12 @@ export const metrics: MetricItem[] = [
   {
     id: "experience",
     value: "10+",
-    label: "D'experience des experts passionnes"
+    label: "Années d'expérience cumulée de nos experts"
   },
   {
     id: "projets",
     value: "30+",
-    label: "Projets realises et clients accompagnes"
+    label: "Projets réalisés et clients accompagnés"
   },
   {
     id: "tinda-mingi",

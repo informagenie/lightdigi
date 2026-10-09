@@ -5,6 +5,7 @@ import { Button } from "@/src/components/ui/Button/Button";
 import { Container } from "@/src/components/ui/Container/Container";
 import { Reveal } from "@/src/components/ui/Reveal/Reveal";
 import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
+import { contactContent } from "@/src/data/contact";
 import { finalCta } from "@/src/data/home";
 import styles from "./FinalCTA.module.scss";
 
@@ -18,46 +19,57 @@ export function FinalCTA() {
 
   return (
     <section id="contact" className={styles.section} aria-labelledby="contact-title">
+      <div className={styles.marquee} aria-hidden="true">
+        <div className={styles.marqueeTrack}>
+          {Array.from({ length: 4 }, (_, index) => (
+            <span key={index}>
+              {finalCta.marquee}
+              <span className={styles.marqueeStar}>✦</span>
+            </span>
+          ))}
+        </div>
+      </div>
+
       <Container>
         <div className={styles.layout}>
           <Reveal className={styles.copy}>
-            <SectionHeading id="contact-title" tone="light" label="Contact" title={finalCta.title} />
+            <SectionHeading id="contact-title" tone="light" label={finalCta.label} title={finalCta.title} />
             <p className={styles.lead}>{finalCta.body}</p>
           </Reveal>
 
           <Reveal className={styles.formWrap} delay={0.1} variant="scale">
             <form className={styles.form} onSubmit={onSubmit}>
-              <p className={styles.formLabel}>Parlez-nous de votre projet</p>
+              <p className={styles.formLabel}>{finalCta.form.label}</p>
 
               <div className={styles.row}>
                 <label className={styles.field}>
-                  <span>Nom</span>
-                  <input name="name" type="text" autoComplete="name" required placeholder="Votre nom" />
+                  <span>{finalCta.form.name}</span>
+                  <input name="name" type="text" autoComplete="name" required placeholder={finalCta.form.namePlaceholder} />
                 </label>
                 <label className={styles.field}>
-                  <span>Email</span>
+                  <span>{finalCta.form.email}</span>
                   <input
                     name="email"
                     type="email"
                     autoComplete="email"
                     required
-                    placeholder="vous@entreprise.com"
+                    placeholder={finalCta.form.emailPlaceholder}
                   />
                 </label>
               </div>
 
               <label className={styles.field}>
-                <span>Telephone</span>
-                <input name="phone" type="tel" autoComplete="tel" placeholder="+243 …" />
+                <span>{finalCta.form.phone}</span>
+                <input name="phone" type="tel" autoComplete="tel" placeholder={finalCta.form.phonePlaceholder} />
               </label>
 
               <label className={styles.field}>
-                <span>Message</span>
+                <span>{finalCta.form.message}</span>
                 <textarea
                   name="message"
                   required
                   rows={5}
-                  placeholder="Objectifs, delais, contexte de marque…"
+                  placeholder={finalCta.form.messagePlaceholder}
                 />
               </label>
 
@@ -66,9 +78,12 @@ export function FinalCTA() {
                   {finalCta.action}
                 </Button>
                 <p className={styles.status} role="status" aria-live="polite">
-                  {status === "success"
-                    ? "Merci. La connexion backend sera ajoutee dans une prochaine phase."
-                    : ""}
+                  {status === "success" ? (
+                    <>
+                      {finalCta.form.success}{" "}
+                      <a href={`mailto:${contactContent.email}`}>{contactContent.email}</a>
+                    </>
+                  ) : null}
                 </p>
               </div>
             </form>

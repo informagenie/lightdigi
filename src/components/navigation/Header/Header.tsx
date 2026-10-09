@@ -15,16 +15,16 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeHref, setActiveHref] = useState("#top");
-  const [portalReady, setPortalReady] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
   const toggleRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setPortalReady(true);
-  }, []);
-
-  useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 24);
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      setIsScrolled(window.scrollY > 24);
+      setScrollProgress(scrollable > 0 ? window.scrollY / scrollable : 0);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -111,7 +111,7 @@ export function Header() {
   const openMenu = () => setIsOpen(true);
 
   const megaMenu =
-    portalReady && isOpen
+    isOpen
       ? createPortal(
           <div
             id="mega-menu"
@@ -141,7 +141,7 @@ export function Header() {
 
             <div className={styles.panelBody}>
               <div className={styles.panelTop}>
-                <p>Navigation immersive</p>
+                <p>Menu</p>
                 <button type="button" onClick={closeMenu}>
                   Fermer
                 </button>
@@ -154,7 +154,7 @@ export function Header() {
                     Services
                   </Link>
                   <Link className={styles.panelTitle} href="/#realisations" onClick={closeMenu}>
-                    Realisations
+                    Réalisations
                   </Link>
                   <Link className={styles.panelTitle} href="/#contact" onClick={closeMenu}>
                     Contact
@@ -220,7 +220,7 @@ export function Header() {
           </nav>
 
           <div className={styles.actions}>
-            <ul className={styles.socials} aria-label="Reseaux sociaux">
+            <ul className={styles.socials} aria-label="Réseaux sociaux">
               {socialLinks.map((link) => (
                 <li key={link.id}>
                   <a
@@ -248,6 +248,11 @@ export function Header() {
             </button>
           </div>
         </div>
+        <span
+          className={styles.progress}
+          style={{ transform: `scaleX(${scrollProgress})` }}
+          aria-hidden="true"
+        />
       </header>
       {megaMenu}
     </>

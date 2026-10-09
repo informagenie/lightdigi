@@ -3,13 +3,17 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ChevronDown } from "lucide-react";
 import { Button } from "@/src/components/ui/Button/Button";
 import { Container } from "@/src/components/ui/Container/Container";
 import { SectionLabel } from "@/src/components/ui/SectionLabel/SectionLabel";
 import { heroContent } from "@/src/data/home";
 import { heroBackdropProjects } from "@/src/data/projects";
+import { splitAccentWords, stripAccentMarks } from "@/src/lib/accent";
 import styles from "./Hero.module.scss";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function HeroPanels({ duplicateKey }: { duplicateKey: string }) {
   return (
@@ -105,6 +109,19 @@ export function Hero() {
           0.55
         );
 
+      // Sortie immersive : le contenu s'élève et s'efface, le fond zoome légèrement.
+      const content = root.querySelector<HTMLElement>("[data-hero-content]");
+      const backdrop = root.querySelector<HTMLElement>("[data-hero-backdrop]");
+      const exit = gsap.timeline({
+        scrollTrigger: { trigger: root, start: "top top", end: "bottom top", scrub: 0.6 }
+      });
+      if (content) {
+        exit.to(content, { yPercent: -18, autoAlpha: 0.15, ease: "none" }, 0);
+      }
+      if (backdrop) {
+        exit.to(backdrop, { scale: 1.12, filter: "brightness(0.55)", ease: "none" }, 0);
+      }
+
       if (scrollCue) {
         timeline.to(scrollCue, { autoAlpha: 1, y: 0, duration: 0.55 }, 0.95);
         gsap.to(scrollCue, {
@@ -121,11 +138,11 @@ export function Hero() {
     return () => ctx.revert();
   }, []);
 
-  const titleParts = heroContent.title.replace(/\.$/, "").split(/\s+/);
+  const titleWords = splitAccentWords(heroContent.title);
 
   return (
     <section id="top" ref={rootRef} className={styles.hero} aria-labelledby="hero-title">
-      <div className={styles.backdrop} aria-hidden="true">
+      <div className={styles.backdrop} aria-hidden="true" data-hero-backdrop>
         <div className={styles.track}>
           <div className={styles.group}>
             <HeroPanels duplicateKey="a" />
@@ -139,22 +156,21 @@ export function Hero() {
       </div>
 
       <Container>
-        <div className={styles.inner}>
+        <div className={styles.inner} data-hero-content>
           <div className={styles.layout}>
             <div className={styles.left}>
               <header className={styles.heading}>
                 <div data-hero-fade>
                   <SectionLabel tone="dark">{heroContent.eyebrow}</SectionLabel>
                 </div>
-                <h1 id="hero-title" className={styles.title} aria-label={heroContent.title}>
-                  {titleParts.map((word, index) => (
+                <h1 id="hero-title" className={styles.title} aria-label={stripAccentMarks(heroContent.title)}>
+                  {titleWords.map(({ word, accent }, index) => (
                     <span key={`${word}-${index}`} className={styles.wordWrap} aria-hidden="true">
-                      <span data-hero-word>{word}</span>
+                      <span data-hero-word className={accent ? styles.accent : undefined}>
+                        {word}
+                      </span>
                     </span>
                   ))}
-                  <span className={styles.wordWrap} aria-hidden="true">
-                    <span data-hero-word>.</span>
-                  </span>
                 </h1>
               </header>
 
@@ -177,8 +193,8 @@ export function Hero() {
         </div>
       </Container>
 
-      <a className={styles.scrollCue} href="#clients" data-hero-scroll data-cursor="Suite" aria-label="Decouvrir la suite">
-        <span>Scroll</span>
+      <a className={styles.scrollCue} href="#clients" data-hero-scroll data-cursor="Suite" aria-label={heroContent.scrollAria}>
+        <span>{heroContent.scrollLabel}</span>
         <ChevronDown aria-hidden="true" size={18} strokeWidth={2} />
       </a>
     </section>

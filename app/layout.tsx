@@ -3,9 +3,9 @@ import { fontVariables } from "@/src/lib/fonts";
 import { socialLinks } from "@/src/data/social";
 import "./globals.scss";
 
-const siteTitle = "Light Digital Consulting - Agence digitale premium";
+const siteTitle = "Light Digital Consulting - Agence de communication digitale";
 const siteDescription =
-  "Light Digital Consulting accompagne les marques en strategie digitale, communication, web, contenus et activation en RDC, en Afrique et a l'international.";
+  "Light Digital Consulting accompagne les marques en stratégie digitale, communication, web, contenus et activation, en RDC, en Afrique et à l'international.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lightdigital-consult.cd"),

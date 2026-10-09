@@ -12,9 +12,9 @@ export type PortfolioItem = {
 };
 
 const clientSector: Record<string, string> = {
-  "Engen RDC": "Energie",
-  "Africa CDC": "Sante publique",
-  "CANAL+ RDC": "Media",
+  "Engen RDC": "Énergie",
+  "Africa CDC": "Santé publique",
+  "CANAL+ RDC": "Média",
   "Fondation Denise Nyakeru": "Fondation"
 };
 
@@ -36,63 +36,63 @@ function project(
 export const selectedProjects: PortfolioItem[] = [
   project({
     id: "engen-anticipez",
-    title: "Anticipez l'entretien de votre vehicule",
+    title: "Anticipez l'entretien de votre véhicule",
     client: "Engen RDC",
     category: "Communication & social media",
-    mission: "Visuels editoriaux et contenus de marque pour la promotion des services et produits Engen.",
+    mission: "Visuels éditoriaux et contenus de marque pour promouvoir les services et produits Engen.",
     image: "/projects/engen/anticipez-entretien.jpg",
-    alt: "Visuel Engen RDC sur l'entretien vehicule avec pneus, freins et huile Dieselube Super",
-    deliverables: ["Social media", "Brand content", "Visuels editoriaux"]
+    alt: "Visuel Engen RDC sur l'entretien du véhicule avec pneus, freins et huile Dieselube Super",
+    deliverables: ["Social media", "Brand content", "Visuels éditoriaux"]
   }),
   project({
     id: "engen-premium-40",
     title: "Premium 40 — Huile moteur",
     client: "Engen RDC",
     category: "Brand content",
-    mission: "Mise en avant produit et argumentaire de performance pour la gamme Premium 40.",
+    mission: "Mise en avant du produit et argumentaire de performance pour la gamme Premium 40.",
     image: "/projects/engen/premium-40.jpg",
     alt: "Visuel produit Engen Premium 40 huile moteur SAE 40",
     deliverables: ["Brand content", "Design produit", "Social media"]
   }),
   project({
     id: "engen-securite",
-    title: "Moteur coupe avant de faire le plein",
+    title: "Moteur coupé avant de faire le plein",
     client: "Engen RDC",
-    category: "Campagne securite",
-    mission: "Series de visuels de sensibilisation sur les bonnes pratiques en station-service.",
+    category: "Campagne sécurité",
+    mission: "Série de visuels de sensibilisation aux bonnes pratiques en station-service.",
     image: "/projects/engen/moteur-coupe.jpg",
-    alt: "Campagne Engen RDC sur la securite en station avec message moteur coupe",
-    deliverables: ["Campagne securite", "Visuels de sensibilisation", "Social media"]
+    alt: "Campagne Engen RDC sur la sécurité en station avec le message « moteur coupé »",
+    deliverables: ["Campagne sécurité", "Visuels de sensibilisation", "Social media"]
   }),
   project({
     id: "africa-cdc-ebola",
-    title: "Ebola se propage — Bonne information",
+    title: "Ebola se propage : faisons circuler la bonne information",
     client: "Africa CDC",
-    category: "Sante publique",
-    mission: "Campagne de sensibilisation et de prevention autour de la circulation d'informations fiables.",
+    category: "Santé publique",
+    mission: "Campagne de sensibilisation et de prévention autour de la circulation d'informations fiables.",
     image: "/projects/africa-cdc/ebola-se-propage.jpg",
     alt: "Visuel de campagne Africa CDC Ebola se propage faisons circuler la bonne information",
-    deliverables: ["Campagne de sensibilisation", "Contenus de prevention", "Activation"]
+    deliverables: ["Campagne de sensibilisation", "Contenus de prévention", "Activation"]
   }),
   project({
     id: "africa-cdc-jeunes",
     title: "Jeune ya solo a partagaka ba info",
     client: "Africa CDC",
     category: "Activation communautaire",
-    mission: "Dispositif de mobilisation des jeunes autour du partage d'informations de sante.",
+    mission: "Dispositif de mobilisation des jeunes autour du partage d'informations de santé.",
     image: "/projects/africa-cdc/jeune-ya-solo.png",
     alt: "Visuel Africa CDC Jeune ya solo a partagaka ba info ya solo",
     deliverables: ["Activation communautaire", "Contenus jeunesse", "Campagne"]
   }),
   project({
     id: "africa-cdc-terrain",
-    title: "Activation terrain & equipe staff",
+    title: "Activation terrain & équipe staff",
     client: "Africa CDC",
-    category: "Evenementiel",
-    mission: "Couverture terrain, supports de campagne et mobilisation sur le terrain a Kinshasa.",
+    category: "Événementiel",
+    mission: "Couverture terrain, supports de campagne et mobilisation des publics à Kinshasa.",
     image: "/projects/africa-cdc/equipe-staff.jpg",
-    alt: "Equipe staff Africa CDC en activation terrain avec supports de campagne",
-    deliverables: ["Evenementiel", "Couverture terrain", "Supports de campagne"]
+    alt: "Équipe staff Africa CDC en activation terrain avec supports de campagne",
+    deliverables: ["Événementiel", "Couverture terrain", "Supports de campagne"]
   })
 ];
 
@@ -100,43 +100,43 @@ export const allProjects: PortfolioItem[] = [
   ...selectedProjects,
   project({
     id: "engen-bon-debut",
-    title: "Bon debut de semaine",
+    title: "Bon début de semaine",
     client: "Engen RDC",
     category: "Social media",
-    mission: "Contenu editorial Engen pour l'animation des reseaux.",
+    mission: "Contenu éditorial Engen pour l'animation des réseaux sociaux.",
     image: "/projects/engen/bon-debut-semaine.jpg",
-    alt: "Visuel Engen RDC Bon debut de semaine",
-    deliverables: ["Social media", "Contenu editorial"]
+    alt: "Visuel Engen RDC Bon début de semaine",
+    deliverables: ["Social media", "Contenu éditorial"]
   }),
   project({
     id: "engen-kata-moteur",
     title: "Kata moteur",
     client: "Engen RDC",
-    category: "Campagne securite",
-    mission: "Sensibilisation securite en station-service.",
+    category: "Campagne sécurité",
+    mission: "Sensibilisation à la sécurité en station-service.",
     image: "/projects/engen/kata-moteur.jpg",
     alt: "Visuel Engen RDC Kata moteur",
-    deliverables: ["Campagne securite", "Social media"]
+    deliverables: ["Campagne sécurité", "Social media"]
   }),
   project({
     id: "engen-pas-detincelle",
-    title: "Pas d'etincelle",
+    title: "Pas d'étincelle",
     client: "Engen RDC",
-    category: "Campagne securite",
-    mission: "Message de prevention autour des bonnes pratiques en station.",
+    category: "Campagne sécurité",
+    mission: "Message de prévention autour des bonnes pratiques en station.",
     image: "/projects/engen/pas-detincelle.jpg",
-    alt: "Visuel Engen RDC Pas d'etincelle",
-    deliverables: ["Campagne securite", "Visuels de prevention"]
+    alt: "Visuel Engen RDC Pas d'étincelle",
+    deliverables: ["Campagne sécurité", "Visuels de prévention"]
   }),
   project({
     id: "africa-cdc-activation",
     title: "Activation terrain",
     client: "Africa CDC",
-    category: "Evenementiel",
+    category: "Événementiel",
     mission: "Activation et couverture terrain Africa CDC.",
     image: "/projects/africa-cdc/activation-terrain.jpg",
     alt: "Activation terrain Africa CDC",
-    deliverables: ["Evenementiel", "Activation terrain"]
+    deliverables: ["Événementiel", "Activation terrain"]
   }),
   project({
     id: "africa-cdc-portrait",
@@ -160,22 +160,22 @@ export const allProjects: PortfolioItem[] = [
   }),
   project({
     id: "canal-plus-visibilite",
-    title: "Campagne de visibilite et trafic",
+    title: "Campagne de visibilité et de trafic",
     client: "CANAL+ RDC",
     category: "Acquisition",
-    mission: "Campagne de visibilite et de trafic pour CANAL+ RDC.",
+    mission: "Campagne de visibilité et de trafic pour CANAL+ RDC.",
     image: "/projects/canal-talk.png",
-    alt: "Campagne CANAL+ RDC Noel Ensemble et generation de trafic",
-    deliverables: ["Acquisition", "Campagne de visibilite", "Trafic"]
+    alt: "Campagne CANAL+ RDC Noël Ensemble et génération de trafic",
+    deliverables: ["Acquisition", "Campagne de visibilité", "Trafic"]
   }),
   project({
     id: "fondation-denise-nyakeru",
-    title: "Campagne de visibilite et trafic — 2021",
+    title: "Campagne de visibilité et de trafic — 2021",
     client: "Fondation Denise Nyakeru",
     category: "Acquisition",
-    mission: "Campagne de visibilite et de trafic pour la Fondation Denise Nyakeru.",
+    mission: "Campagne de visibilité et de trafic pour la Fondation Denise Nyakeru.",
     image: "/projects/campaign-digital.png",
-    alt: "Campagne Fondation Denise Nyakeru Noel pour tous 2021",
+    alt: "Campagne Fondation Denise Nyakeru Noël pour tous 2021",
     deliverables: ["Acquisition", "SEO", "Campagne content", "Display"]
   })
 ];

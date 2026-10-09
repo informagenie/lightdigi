@@ -6,6 +6,7 @@ import { Container } from "@/src/components/ui/Container/Container";
 import { Button } from "@/src/components/ui/Button/Button";
 import { ImageAccordion } from "@/src/components/ui/ImageAccordion/ImageAccordion";
 import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
+import { sectionHeadings, worksContent } from "@/src/data/home";
 import { allProjects } from "@/src/data/projects";
 import styles from "./SelectedWorks.module.scss";
 
@@ -57,17 +58,17 @@ export function SelectedWorks() {
           <SectionHeading
             id="works-title"
             tone="light"
-            label="Portfolio"
-            title="Decouvrez nos projets recents et nos terrains d'expression."
+            label={sectionHeadings.works.label}
+            title={sectionHeadings.works.title}
             className={styles.heading}
           />
 
           {canSlide ? (
-            <div className={styles.controls} aria-label="Navigation du portfolio">
-              <button type="button" aria-label="Projets precedents" onClick={() => slide("previous")}>
+            <div className={styles.controls} aria-label={worksContent.controlsLabel}>
+              <button type="button" aria-label={worksContent.previous} onClick={() => slide("previous")}>
                 <ChevronLeft aria-hidden="true" size={20} />
               </button>
-              <button type="button" aria-label="Projets suivants" onClick={() => slide("next")}>
+              <button type="button" aria-label={worksContent.next} onClick={() => slide("next")}>
                 <ChevronRight aria-hidden="true" size={20} />
               </button>
             </div>
@@ -92,7 +93,7 @@ export function SelectedWorks() {
 
       <Container className={styles.footer}>
         <Button href="/realisations" variant="secondary">
-          Voir plus de projets
+          {worksContent.more}
         </Button>
       </Container>
     </section>

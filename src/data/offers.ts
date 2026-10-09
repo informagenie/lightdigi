@@ -18,12 +18,12 @@ export const offerPackages: OfferPackage[] = [
     summary: "Pour poser des bases solides et rendre votre marque visible.",
     image: "/media/light-starter.jpg",
     features: [
-      "Calendrier editorial mensuel (structure et reutilisable).",
-      "3 visuels + 2 videos animees par semaine, adaptes a vos plateformes.",
-      "Elaboration d'une strategie digitale complete.",
+      "Calendrier éditorial mensuel (structuré et réutilisable).",
+      "3 visuels + 2 vidéos animées par semaine, adaptés a vos plateformes.",
+      "Élaboration d'une stratégie digitale complète.",
       "Analyse digitale de la marque : audit, positionnement et recommandations.",
       "Campagne publicitaire Facebook (Meta Ads niveau basique).",
-      "Audit digital general (performance, coherence, image)."
+      "Audit digital général (performance, cohérence, image)."
     ]
   },
   {
@@ -31,38 +31,38 @@ export const offerPackages: OfferPackage[] = [
     name: "Light Booster",
     price: "700 $",
     period: "/mois",
-    summary: "Pour accelerer votre presence et renforcer votre activation digitale.",
+    summary: "Pour accélérer votre présence et renforcer votre activation digitale.",
     image: "/media/light-booster.jpg",
     featured: true,
     features: [
-      "Calendrier editorial mensuel (structure et reutilisable).",
-      "3 visuels + 2 videos animees par semaine, adaptes a vos plateformes.",
-      "Elaboration d'une strategie digitale complete.",
+      "Calendrier éditorial mensuel (structuré et réutilisable).",
+      "3 visuels + 2 vidéos animées par semaine, adaptés a vos plateformes.",
+      "Élaboration d'une stratégie digitale complète.",
       "Analyse digitale de la marque : audit, positionnement et recommandations.",
       "Campagne publicitaire Facebook (Meta Ads niveau basique).",
-      "Audit digital general (performance, coherence, image)."
+      "Audit digital général (performance, cohérence, image)."
     ]
   },
   {
     id: "light-avance",
-    name: "Light Avance",
+    name: "Light Avancé",
     price: "1000 $",
     period: "/mois",
-    summary: "Pour une execution plus ambitieuse et un accompagnement renforce.",
+    summary: "Pour une exécution plus ambitieuse et un accompagnement renforcé.",
     image: "/media/light-booster.jpg",
     features: [
-      "Calendrier editorial mensuel (structure et reutilisable).",
-      "3 visuels + 2 videos animees par semaine, adaptes a vos plateformes.",
-      "Elaboration d'une strategie digitale complete.",
+      "Calendrier éditorial mensuel (structuré et réutilisable).",
+      "3 visuels + 2 vidéos animées par semaine, adaptés a vos plateformes.",
+      "Élaboration d'une stratégie digitale complète.",
       "Analyse digitale de la marque : audit, positionnement et recommandations.",
       "Campagne publicitaire Facebook (Meta Ads niveau basique).",
-      "Audit digital general (performance, coherence, image)."
+      "Audit digital général (performance, cohérence, image)."
     ]
   }
 ];
 
 export const offerIntro = {
   label: "Offres",
-  title: "Campagne speciale — packages Light Digital Consulting.",
-  body: "Des formules mensuelles pour structurer votre presence, produire des contenus et activer vos campagnes."
+  title: "Campagne spéciale — packages Light Digital Consulting.",
+  body: "Des formules mensuelles pour structurer votre présence, produire des contenus et activer vos campagnes."
 };

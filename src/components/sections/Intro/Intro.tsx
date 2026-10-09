@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { Container } from "@/src/components/ui/Container/Container";
+import { ParallaxMedia } from "@/src/components/ui/ParallaxMedia/ParallaxMedia";
 import { Reveal } from "@/src/components/ui/Reveal/Reveal";
+import { ScrollHighlightText } from "@/src/components/ui/ScrollHighlightText/ScrollHighlightText";
 import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
 import { introContent } from "@/src/data/home";
 import styles from "./Intro.module.scss";
@@ -21,21 +23,19 @@ export function Intro() {
           </Reveal>
 
           <div className={styles.body}>
-            <Reveal delay={0.08}>
-              <p>{introContent.body}</p>
-            </Reveal>
+            <ScrollHighlightText text={introContent.body} />
 
-            <Reveal className={styles.imageReveal} delay={0.16} variant="scale">
+            <ParallaxMedia className={styles.imageReveal} reveal="fade" depth={6}>
               <div className={styles.imageWrap}>
                 <Image
                   src="/media/intro-equipe-table.png"
-                  alt="Equipe Light Digital Consulting en collaboration autour d'une table de travail"
+                  alt={introContent.imageAlt}
                   fill
                   sizes="(max-width: 900px) 100vw, 42vw"
                   priority
                 />
               </div>
-            </Reveal>
+            </ParallaxMedia>
           </div>
         </div>
       </Container>

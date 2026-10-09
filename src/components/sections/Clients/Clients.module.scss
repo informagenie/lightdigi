@@ -4,39 +4,62 @@
   color: #fff;
 }
 
-.grid {
+.bands {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(1.5rem, 3vw, 2.75rem) clamp(1rem, 2.5vw, 2rem);
+  gap: clamp(0.75rem, 1.5vw, 1.25rem);
+}
+
+.band {
+  overflow: hidden;
+  border-block: 1px solid var(--color-line-dark);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+
+  &:hover .track {
+    animation-play-state: paused;
+  }
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: clients-marquee 48s linear infinite;
+}
+
+.reverse .track {
+  animation-direction: reverse;
+  animation-duration: 56s;
+}
+
+.group {
+  display: flex;
+  flex-shrink: 0;
   margin: 0;
   padding: 0;
   list-style: none;
-  align-items: center;
-}
-
-.item {
-  min-width: 0;
-  display: flex;
-  justify-content: center;
 }
 
 .logoCard {
   display: grid;
   place-items: center;
-  width: 100%;
-  min-height: clamp(4.5rem, 8vw, 5.75rem);
-  padding: 0.5rem;
+  width: clamp(9rem, 15vw, 13.5rem);
+  height: clamp(5.5rem, 9vw, 7.5rem);
+  padding: 1rem 1.5rem;
+  border-right: 1px solid var(--color-line-dark);
+  transition: background-color var(--duration-med) var(--ease-premium);
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-orange) 10%, transparent);
+  }
 }
 
 .logo {
-  width: auto !important;
-  max-width: min(100%, 10.5rem);
-  height: auto !important;
-  max-height: 3.75rem;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 3.4rem;
   object-fit: contain;
-  object-position: center;
   filter: brightness(0) invert(1);
-  opacity: 0.88;
+  opacity: 0.72;
   transform: scale(var(--logo-scale, 1));
   transition:
     opacity var(--duration-fast) var(--ease-premium),
@@ -44,30 +67,38 @@
 
   .logoCard:hover & {
     opacity: 1;
-    transform: scale(calc(var(--logo-scale, 1) * 1.06));
+    transform: scale(calc(var(--logo-scale, 1) * 1.08));
   }
 }
 
-@media (max-width: 1100px) {
-  .grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 900px) {
-  .grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.75rem 1.25rem;
+@keyframes clients-marquee {
+  to {
+    transform: translateX(-50%);
   }
 }
 
 @media (max-width: 640px) {
-  .grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.5rem 1rem;
+  .logo {
+    max-height: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .band {
+    mask-image: none;
   }
 
-  .logo {
-    max-height: 3.25rem;
+  .track {
+    width: auto;
+    animation: none;
+  }
+
+  .group {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &[aria-hidden] {
+      display: none;
+    }
   }
 }

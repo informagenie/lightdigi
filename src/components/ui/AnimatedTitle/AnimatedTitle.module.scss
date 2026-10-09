@@ -1,0 +1,24 @@
+.title {
+  text-wrap: balance;
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  // Laisse respirer les jambages et l'italique sans rogner les lettres
+  padding: 0.04em 0.08em 0.1em 0;
+  margin: -0.04em 0.18em -0.1em 0;
+  vertical-align: bottom;
+
+  > span {
+    display: inline-block;
+    transform-origin: 0 100%;
+    will-change: transform;
+  }
+}
+
+.accent {
+  color: var(--color-orange);
+  font-style: italic;
+  font-weight: 600;
+}

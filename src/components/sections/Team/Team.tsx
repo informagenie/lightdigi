@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Container } from "@/src/components/ui/Container/Container";
 import { Reveal } from "@/src/components/ui/Reveal/Reveal";
 import { SectionHeading } from "@/src/components/ui/SectionHeading/SectionHeading";
+import { sectionHeadings } from "@/src/data/home";
 import { teamMembers } from "@/src/data/team";
 import styles from "./Team.module.scss";
 
@@ -13,8 +14,8 @@ export function Team() {
           <SectionHeading
             id="team-title"
             tone="light"
-            label="Notre equipe"
-            title="Une equipe d'experts mobilisee pour repondre aux besoins uniques de chaque projet."
+            label={sectionHeadings.team.label}
+            title={sectionHeadings.team.title}
             className={styles.heading}
           />
         </Reveal>

@@ -104,7 +104,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         {related.length > 0 ? (
           <Container className={styles.galleryBlock}>
             <div className={styles.galleryHead}>
-              <h2>Visuels associes</h2>
+              <h2>Visuels associés</h2>
               <span />
             </div>
             <ul className={styles.gallery}>

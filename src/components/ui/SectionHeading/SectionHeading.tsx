@@ -1,8 +1,10 @@
+import { AnimatedTitle } from "@/src/components/ui/AnimatedTitle/AnimatedTitle";
 import { SectionLabel } from "@/src/components/ui/SectionLabel/SectionLabel";
 import styles from "./SectionHeading.module.scss";
 
 type SectionHeadingProps = {
   label: string;
+  /** Accepte la syntaxe *accent* pour surligner un passage. */
   title: string;
   id?: string;
   tone?: "light" | "dark";
@@ -25,7 +27,7 @@ export function SectionHeading({
       <SectionLabel tone={tone} variant={labelVariant}>
         {label}
       </SectionLabel>
-      <h2 id={id}>{title}</h2>
+      <AnimatedTitle id={id} text={title} />
     </header>
   );
 }

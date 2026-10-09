@@ -34,10 +34,8 @@ export const pendingValidation = {
       needsVisualAssets: true
     }
   ],
-  teamMembersFromLiveSiteMissingPhotos: [
-    { name: "Jossard Katunda", role: "Manager General, Expert Digital" },
+  teamMembersFromLiveSiteNotInCurrentList: [
     { name: "Gerielle Say", role: "Chef de Projet / Pole Paris" },
-    { name: "Grace Nkoyi", role: "Consultant Multimedia" },
     { name: "Jeff Kosi", role: "Consultant Web development" },
     { name: "Grace Yaloussis", role: "Creatrice de contenu" }
   ],

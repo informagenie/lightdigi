@@ -9,6 +9,8 @@ export const clientLogos: ClientLogo[] = [
   { id: "vivo-energy", name: "Vivo Energy", logo: "/clients/vivo-energy.png" },
   { id: "africa-cdc", name: "Africa CDC", logo: "/clients/africa-cdc.png" },
   { id: "vodacom", name: "Vodacom", logo: "/clients/vodacom.png" },
+  { id: "shell", name: "Shell", logo: "/clients/shell.png" },
+  { id: "orange", name: "Orange", logo: "/clients/orange.png" },
   { id: "engen", name: "Engen", logo: "/clients/engen.png" },
   { id: "canal-plus", name: "CANAL+", logo: "/clients/canal-plus.png" },
   { id: "uba", name: "UBA", logo: "/clients/uba.png?v=2" },

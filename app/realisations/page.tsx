@@ -12,7 +12,7 @@ import styles from "./realisations.module.scss";
 export const metadata: Metadata = {
   title: "Realisations",
   description:
-    "Decouvrez l'ensemble des projets realises par Light Digital Consulting pour des marques, institutions et organisations."
+    "Découvrez l'ensemble des projets réalisés par Light Digital Consulting pour des marques, institutions et organisations."
 };
 
 export default function RealisationsPage() {
@@ -25,7 +25,7 @@ export default function RealisationsPage() {
             id="all-works-title"
             tone="light"
             label="Portfolio"
-            title="Tous nos projets realises."
+            title="Tous nos projets réalisés."
           />
           <p className={styles.lead}>
             Une selection elargie de campagnes, activations et productions digitalisees pour nos

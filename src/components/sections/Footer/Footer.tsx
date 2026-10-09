@@ -4,6 +4,7 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { Container } from "@/src/components/ui/Container/Container";
 import { navigationItems } from "@/src/data/navigation";
 import { contactContent } from "@/src/data/contact";
+import { footerContent } from "@/src/data/home";
 import { socialLinks } from "@/src/data/social";
 import styles from "./Footer.module.scss";
 
@@ -25,8 +26,8 @@ export function Footer() {
               <small>agence digitale</small>
             </span>
           </Link>
-          <p>Strategie, creation, technologie et activation digitale.</p>
-          <ul className={styles.socials} aria-label="Reseaux sociaux">
+          <p>{footerContent.tagline}</p>
+          <ul className={styles.socials} aria-label={footerContent.socialsLabel}>
             {socialLinks.map((link) => {
               const Icon = socialIcons[link.id as keyof typeof socialIcons];
               if (!Icon) {
@@ -49,7 +50,7 @@ export function Footer() {
             })}
           </ul>
         </div>
-        <nav aria-label="Navigation pied de page">
+        <nav aria-label={footerContent.navLabel}>
           {navigationItems.map((item) => (
             <Link key={item.label} href={item.href}>
               {item.label}
@@ -68,7 +69,7 @@ export function Footer() {
         </address>
       </Container>
       <Container>
-        <p className={styles.copy}>© 2022 – 2026 Light Digital Consulting. Tous droits reserves.</p>
+        <p className={styles.copy}>{footerContent.copyright}</p>
       </Container>
     </footer>
   );

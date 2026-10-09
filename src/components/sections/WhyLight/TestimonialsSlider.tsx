@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import type { Testimonial } from "@/src/data/home";
+import { whyContent, type Testimonial } from "@/src/data/home";
 import styles from "./TestimonialsSlider.module.scss";
 
 type TestimonialsSliderProps = {
@@ -54,7 +54,7 @@ export function TestimonialsSlider({ items }: TestimonialsSliderProps) {
       }}
     >
       <div className={styles.top}>
-        <p className={styles.label}>Temoignages</p>
+        <p className={styles.label}>{whyContent.testimonialsLabel}</p>
         {canSlide ? (
           <p className={styles.counter} aria-live="polite">
             {String(index + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}
@@ -69,7 +69,7 @@ export function TestimonialsSlider({ items }: TestimonialsSliderProps) {
         >
           {items.map((item) => (
             <blockquote key={item.id} className={styles.quote}>
-              <p>“{item.quote}”</p>
+              <p>« {item.quote} »</p>
               <footer>
                 <cite>{item.author}</cite>
                 {item.role ? <span>{item.role}</span> : null}
@@ -81,14 +81,14 @@ export function TestimonialsSlider({ items }: TestimonialsSliderProps) {
 
       {canSlide ? (
         <div className={styles.nav}>
-          <div className={styles.dots} role="tablist" aria-label="Temoignages">
+          <div className={styles.dots} role="tablist" aria-label={whyContent.testimonialsLabel}>
             {items.map((item, itemIndex) => (
               <button
                 key={item.id}
                 type="button"
                 role="tab"
                 aria-selected={itemIndex === index}
-                aria-label={`Temoignage ${itemIndex + 1}`}
+                aria-label={`${whyContent.testimonialsLabel} ${itemIndex + 1}`}
                 className={itemIndex === index ? styles.dotActive : styles.dot}
                 onClick={() => goTo(itemIndex)}
               />
@@ -96,10 +96,10 @@ export function TestimonialsSlider({ items }: TestimonialsSliderProps) {
           </div>
 
           <div className={styles.arrows}>
-            <button type="button" aria-label="Temoignage precedent" onClick={() => goTo(index - 1)}>
+            <button type="button" aria-label={whyContent.previous} onClick={() => goTo(index - 1)}>
               <ChevronLeft aria-hidden="true" size={18} />
             </button>
-            <button type="button" aria-label="Temoignage suivant" onClick={() => goTo(index + 1)}>
+            <button type="button" aria-label={whyContent.next} onClick={() => goTo(index + 1)}>
               <ChevronRight aria-hidden="true" size={18} />
             </button>
           </div>
